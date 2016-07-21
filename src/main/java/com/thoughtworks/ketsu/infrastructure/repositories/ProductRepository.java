@@ -4,6 +4,7 @@ import com.thoughtworks.ketsu.domain.product.Product;
 import com.thoughtworks.ketsu.infrastructure.mybatis.mappers.ProductMapper;
 
 import javax.inject.Inject;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
@@ -16,5 +17,10 @@ public class ProductRepository implements com.thoughtworks.ketsu.domain.product.
     public Optional<Product> createProduct(Map<String, Object> info) {
         productMapper.save(info);
         return Optional.ofNullable(productMapper.findById(Long.valueOf(String.valueOf(info.get("id")))));
+    }
+
+    @Override
+    public List<Product> listProduct() {
+        return productMapper.getAll();
     }
 }
