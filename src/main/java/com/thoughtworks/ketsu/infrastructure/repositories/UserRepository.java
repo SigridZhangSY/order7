@@ -16,4 +16,9 @@ public class UserRepository implements com.thoughtworks.ketsu.domain.user.UserRe
         userMapper.save(info);
         return Optional.ofNullable(userMapper.findById(Long.valueOf(String.valueOf(info.get("id")))));
     }
+
+    @Override
+    public Optional<User> findById(long id) {
+        return Optional.ofNullable(userMapper.findById(id));
+    }
 }

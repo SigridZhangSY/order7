@@ -23,4 +23,11 @@ public class UserRepositoryTest {
         Optional<User> user = userRepository.postUser(TestHelper.userMap("John"));
         assertThat(user.isPresent(), is(true));
     }
+
+    @Test
+    public void should_find_user(){
+        User user = userRepository.postUser(TestHelper.userMap("John")).get();
+        Optional<User> user_res = userRepository.findById(user.getId());
+        assertThat(user_res.isPresent(), is(true));
+    }
 }

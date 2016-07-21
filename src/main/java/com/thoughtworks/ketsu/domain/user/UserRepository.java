@@ -7,4 +7,5 @@ public interface UserRepository {
 
     Optional<User> postUser(Map<String, Object> info);
 
+    Optional<User> findById(long id);
 }
