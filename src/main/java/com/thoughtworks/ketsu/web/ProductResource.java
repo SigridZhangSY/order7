@@ -42,7 +42,8 @@ public class ProductResource {
     @GET
     @Path("{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public String getProduct(){
-        return "OK";
+    public Product getProduct(@PathParam("id") long id,
+                              @Context ProductRepository productRepository){
+        return productRepository.findById(id).get();
     }
 }
