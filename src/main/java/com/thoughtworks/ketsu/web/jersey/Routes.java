@@ -13,7 +13,4 @@ public class Routes {
         baseUri = uriInfo.getBaseUri().toASCIIString();
     }
 
-    public URI userUrl(User user) {
-        return URI.create(String.format("%susers/%s", baseUri, user.getUserId().id()));
-    }
 }
