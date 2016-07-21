@@ -15,6 +15,7 @@ import javax.ws.rs.core.Response;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.regex.Pattern;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
@@ -43,11 +44,12 @@ public class UserResourceTest extends ApiSupport{
     }
 
     @Test
-    public void should_return_201_when_post_order(){
+    public void should_return_uri_when_post_order(){
         User user = userRepository.postUser(TestHelper.userMap("John")).get();
         Product product = productRepository.createProduct(TestHelper.productMap("apple")).get();
 
         Response post = post("users/" + user.getId() + "/orders", new HashMap<>());
         assertThat(post.getStatus(), is(201));
+        assertThat(Pattern.matches(".*/orders/[0-9-]*", post.getLocation().toASCIIString()), is(true));
     }
 }
