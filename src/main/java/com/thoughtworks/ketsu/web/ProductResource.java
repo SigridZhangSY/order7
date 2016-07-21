@@ -5,10 +5,7 @@ import com.thoughtworks.ketsu.domain.product.ProductRepository;
 import com.thoughtworks.ketsu.web.exception.InvalidParameterException;
 import com.thoughtworks.ketsu.web.jersey.Routes;
 
-import javax.ws.rs.Consumes;
-import javax.ws.rs.GET;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
+import javax.ws.rs.*;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -37,7 +34,8 @@ public class ProductResource {
     }
 
     @GET
-    public String listProducts(){
-        return "OK";
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<Product> listProducts(@Context ProductRepository productRepository){
+        return productRepository.listProduct();
     }
 }
