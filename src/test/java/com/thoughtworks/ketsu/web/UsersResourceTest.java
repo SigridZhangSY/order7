@@ -33,4 +33,5 @@ public class UsersResourceTest extends ApiSupport{
         assertThat(map.size(), is(1));
 
     }
+
 }
