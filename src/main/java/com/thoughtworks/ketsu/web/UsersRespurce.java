@@ -30,9 +30,10 @@ public class UsersRespurce {
         return Response.created(routes.userUri(user)).build();
     }
 
-    @GET
     @Path("{userId}")
-    public String findUser(){
-        return "OK";
+    public UserResource getUserResource(@PathParam("userId") long userId,
+                                        @Context UserRepository userRepository){
+        User user = userRepository.findById(userId).get();
+        return new UserResource(user);
     }
 }
