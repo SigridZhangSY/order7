@@ -10,6 +10,9 @@ public class Product {
         this.id = id;
     }
 
+    public Product(){
+
+    }
 
     public long getId() {
         return id;

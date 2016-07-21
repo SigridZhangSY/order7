@@ -20,6 +20,6 @@ public class ProductResourceTest extends ApiSupport {
     public void should_return_uri_when_post(){
         Response post = post("products", new HashMap<String, Object>());
         assertThat(post.getStatus(), is(201));
-        assertThat(Pattern.matches(".*?/products/[0-9-]*", post.getLocation().toASCIIString()), is(true));
+        assertThat(Pattern.matches(".*/products/[0-9-]*", post.getLocation().toASCIIString()), is(true));
     }
 }
