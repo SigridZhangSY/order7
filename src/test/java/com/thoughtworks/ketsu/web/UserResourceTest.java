@@ -29,4 +29,11 @@ public class UserResourceTest extends ApiSupport{
         final Map<String, Object> map = get.readEntity(Map.class);
         assertThat(String.valueOf(map.get("uri")), is("/users/" + user.getId()));
     }
+
+    @Test
+    public void should_return_404_when_user_not_exists(){
+        User user = userRepository.postUser(TestHelper.userMap("John")).get();
+        Response get = get("users/" + (user.getId()+1));
+        assertThat(get.getStatus(), is(404));
+    }
 }

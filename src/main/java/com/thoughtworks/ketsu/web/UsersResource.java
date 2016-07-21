@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Map;
 
 @Path("users")
-public class UsersRespurce {
+public class UsersResource {
 
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
@@ -33,7 +33,7 @@ public class UsersRespurce {
     @Path("{userId}")
     public UserResource getUserResource(@PathParam("userId") long userId,
                                         @Context UserRepository userRepository){
-        User user = userRepository.findById(userId).get();
+        User user = userRepository.findById(userId).orElseThrow(() -> new NotFoundException("user not found"));
         return new UserResource(user);
     }
 }
