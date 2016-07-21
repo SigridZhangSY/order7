@@ -31,4 +31,11 @@ public class ProductRepositoryTest {
         List<Product> list = productRepository.listProduct();
         assertThat(list.size(), is(1));
     }
+
+    @Test
+    public void should_find_product_by_id(){
+        Optional<Product> product = productRepository.createProduct(TestHelper.productMap("name"));
+        Optional<Product> product_res = productRepository.findById(product.get().getId());
+        assertThat(product_res.get().getId(), is(product.get().getId()));
+    }
 }

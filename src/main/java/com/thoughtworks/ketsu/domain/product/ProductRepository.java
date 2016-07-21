@@ -9,4 +9,6 @@ public interface ProductRepository {
     Optional<Product> createProduct(Map<String, Object> info);
 
     List<Product> listProduct();
+
+    Optional<Product> findById(long id);
 }

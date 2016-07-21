@@ -23,4 +23,9 @@ public class ProductRepository implements com.thoughtworks.ketsu.domain.product.
     public List<Product> listProduct() {
         return productMapper.getAll();
     }
+
+    @Override
+    public Optional<Product> findById(long id) {
+        return Optional.ofNullable(productMapper.findById(id));
+    }
 }
