@@ -1,6 +1,5 @@
 package com.thoughtworks.ketsu.web.jersey;
 
-import com.thoughtworks.ketsu.domain.user.User;
 
 import javax.ws.rs.core.UriInfo;
 import java.net.URI;

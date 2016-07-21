@@ -1,19 +1,18 @@
 package com.thoughtworks.ketsu.infrastructure.util;
 
-import com.thoughtworks.ketsu.domain.user.EncryptionService;
 import org.mindrot.jbcrypt.BCrypt;
 
-public class DefaultEncryptionService implements EncryptionService {
-    @Override
-    public String encrypt(String password) {
-        return Encryption.BCRYPT.encrypt(password);
-    }
-
-    @Override
-    public boolean check(String checkPassword, String realPassword) {
-        return BCrypt.checkpw(checkPassword, realPassword);
-    }
-}
+//public class DefaultEncryptionService implements EncryptionService {
+//    @Override
+//    public String encrypt(String password) {
+//        return Encryption.BCRYPT.encrypt(password);
+//    }
+//
+//    @Override
+//    public boolean check(String checkPassword, String realPassword) {
+//        return BCrypt.checkpw(checkPassword, realPassword);
+//    }
+//}
 
 enum Encryption {
     BCRYPT {
