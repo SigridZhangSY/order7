@@ -4,6 +4,8 @@ public class User {
     private long id;
     private String name;
 
+    public User(){}
+
     public User(long id) {
         this.id = id;
     }

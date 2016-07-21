@@ -15,4 +15,10 @@ public class TestHelper {
         }};
     }
 
+    public static Map<String, Object> userMap(String name){
+        return new HashMap<String, Object>(){{
+            put("name", name);
+        }};
+    }
+
 }
